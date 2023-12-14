@@ -7,14 +7,16 @@ def index():
     d = 3/2
     return 'Index'
 
+
 @app.route("/contato")
 def contato():
     return 'Contato'
 
-def teste():
-    return '<h3>Testando Flask</h3>'
+@app.route("/hello/")
+@app.route("/hello/<nome>/")
+def hello(nome=""):
+    return "<h1>Hello World!</h1>\n<h3>Um olá especial do Flask</h3>\n<h4>{}</h4>".format(nome)
 
-app.add_url_rule("/teste","teste",teste)
 
 
 if __name__ == '__main__':
